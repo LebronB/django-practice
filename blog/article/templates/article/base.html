@@ -1,0 +1,32 @@
+<!-- 载入bootstrap4 -->
+{% load bootstrap4 %}
+{% load static %}
+{% bootstrap_css %}
+
+<!-- 网站主语言 -->
+<html lang="zh-cn">
+
+<head>
+    <!-- 字符编码方式 -->
+    <meta charset="UTF-8">
+    <!-- 预留网站标题的位置-->
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+  <!-- 引入导航栏 -->
+  {% include 'article/header.html' %}
+  <!-- 为网站主体内容预留位置 -->
+  {% block content %}{% endblock content %}
+  <!-- 引入页脚 -->
+  {% include 'article/footer.html' %}
+
+  <!-- 引入jquery.js -->
+  <script src="{% static 'jquery/jquery-3.5.1.js' %}"></script>
+  <script src="{% static 'popper/popper.js' %}"></script>
+  <!-- 引入layer.js -->
+  <script src="{% static 'layer/layer.js' %}"></script>
+  {% bootstrap_javascript %}
+</body>
+
+</html>

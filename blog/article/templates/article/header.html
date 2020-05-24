@@ -1,0 +1,40 @@
+{% load bootstrap4 %}
+
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #563d7c;">
+    <div class="container">
+
+        <!-- 导航栏brand -->
+        <a href="{% url 'article:article_list' %}" class="navbar-brand">郎</a>
+
+        <!-- 导航选项 -->
+        <div class="">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a href="{% url 'article:article_create' %}" class="nav-link">新文章</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'article:article_list' %}" class="nav-link">文章</a>
+                </li>
+
+                {% if user.is_authenticated %}
+                    <!-- 如果用户已经登录，则显示用户名下拉框 -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ user.username }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">退出登录</a>
+                        </div>
+                    </li>
+                {% else %}
+                <!-- 如果未登录则显示登录 -->
+                    <li class="nav-item">
+                        <a href="{% url 'users:user_login' %}" class="nav-link">登录</a>
+                    </li>
+                {% endif %}
+                
+            </ul>
+        </div>
+
+    </div>
+</nav>

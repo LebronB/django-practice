@@ -1,0 +1,27 @@
+{% extends "article/base.html" %}
+{% load bootstrap4 %}
+
+{% block header %}
+  创建新文章
+{% endblock header %}
+
+{% block content %}
+  <div class="container">
+		<div class="row col-12 mt-4">
+			<form action="." method="post" class="col-12">
+		  {% csrf_token %}
+		  <!-- 标题 -->
+		  <div class="form-group">
+			  <label for="title">文章标题</label>
+			  <input type="text" class="form-control" name="title">
+		  </div>
+			<div class="form-group">
+				<label for="content">文章内容</label>
+				<textarea type="text" class="form-control" name="content" rows="10"></textarea>
+			</div>
+			<button type="submit" class="btn btn-primary">提交</button>
+	    </form>
+		</div>
+  </div>
+
+{% endblock content %}
